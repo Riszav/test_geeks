@@ -11,7 +11,7 @@ def task_detail_api_view(request, id):
     try:
         task = Task.objects.get(id=id)
     except Task.DoesNotExist:
-        return Response(data={'error': 'Director not Found!'},
+        return Response(data={'error': 'Task not Found!'},
                         status=status.HTTP_404_NOT_FOUND)
     if request.method == 'GET':
         data = TaskSerializer(task).data
